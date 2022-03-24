@@ -11,12 +11,12 @@ app.get('/', (req,res,next) =>{
   (async () => {    
       res.status(200).send({
           sistema: {
-              nome: 'Organiza',
-              versao: '1.0.0.0',
-              ambiente: 'dev',
-              proprietario: 'Victor Rocha'
+            nome: 'Api_Authentication',
+            versao: '1.0.0.1',
+            proprietario: 'Victor Rocha'
           }
-      })
+      }
+    )
   })();
 });
 
