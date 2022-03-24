@@ -4,16 +4,21 @@
   "description": "node app",
   "main": "app.js",
   "scripts": {
-  "start": "node app.js"
-},
+    "start": "node app.js"
+  },
   "repository": {
-  "type": "git",
-  "url": ""
-},
+    "type": "git",
+    "url": ""
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
-  "url": ""
-},
-  "homepage": ""
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "express": "^4.17.3",
+    "httpdispatcher": "^2.2.0",
+    "jsonwebtoken": "^8.5.1"
+  }
 }
