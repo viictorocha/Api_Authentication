@@ -12,7 +12,7 @@ app.get('/', (req,res,next) =>{
       res.status(200).send({
           sistema: {
             nome: 'Api_Authentication',
-            versao: '1.0.0.1',
+            versao: '1.0.0.2',
             proprietario: 'Victor Rocha'
           }
       }
