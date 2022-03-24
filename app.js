@@ -15,9 +15,9 @@ app.get('/', (req,res,next) =>{
             versao: '1.0.0.2',
             proprietario: 'Victor Rocha'
           }
-      }
-    )
-  })();
+        }
+      )
+    })();
 });
 
 app.post("/login", function (req, res) {
@@ -27,12 +27,11 @@ app.post("/login", function (req, res) {
 app.get('/security',security.verifyJWT,(req, res) => {
   (async () => {    
       res.status(200).send({
-          sistema: {
-              nome: 'Organiza',
-              versao: '1.0.0.0',
-              ambiente: 'dev',
-              proprietario: 'Victor Rocha'
-          }
+        sistema: {
+          nome: 'Api_Authentication',
+          versao: '1.0.0.2',
+          proprietario: 'Victor Rocha'
+        }
       })
   })();
 });
