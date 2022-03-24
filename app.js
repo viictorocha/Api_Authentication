@@ -1,19 +1,42 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const security = require('./security.js')
 
-const loginRouter = require('./routes/login');
-
-app.use(bodyParser.urlencoded({ extended: false })); //Aceita apenas dados simples
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.use(express.static("public"))
 
-app.get("/", function (req, res) {
-  res.send("Server ON")
-})
+app.get('/', (req,res,next) =>{
+  (async () => {    
+      res.status(200).send({
+          sistema: {
+              nome: 'Organiza',
+              versao: '1.0.0.0',
+              ambiente: 'dev',
+              proprietario: 'Victor Rocha'
+          }
+      })
+  })();
+});
 
-app.use('/login', loginRouter);
+app.post("/login", function (req, res) {
+  security.login(req, res)
+});
+
+app.get('/security',security.verifyJWT,(req, res) => {
+  (async () => {    
+      res.status(200).send({
+          sistema: {
+              nome: 'Organiza',
+              versao: '1.0.0.0',
+              ambiente: 'dev',
+              proprietario: 'Victor Rocha'
+          }
+      })
+  })();
+});
 
 app.listen(process.env.PORT || 3000, () => console.log("Server ON"));
+
 module.exports = app;
